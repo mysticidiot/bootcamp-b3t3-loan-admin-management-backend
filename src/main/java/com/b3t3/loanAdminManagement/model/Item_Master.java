@@ -1,8 +1,11 @@
 package com.b3t3.loanAdminManagement.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +29,9 @@ public class Item_Master {
 	
 	@Column
 	Long item_valuation;
+	
+	@OneToMany(mappedBy = "itemMaster")
+	List<Employee_Issue_Details> empIssueDetails;
 
 	public String getItem_id() {
 		return item_id;
