@@ -15,10 +15,6 @@ public class Loan_Card_Master {
     @Column
     int duration_in_years;
 
-    @OneToMany
-    @JoinColumn(name="loan_id")
-    Employee_Card_Details empCardDetails;
-
     public String getLoan_id() {
         return loan_id;
     }
@@ -42,14 +38,8 @@ public class Loan_Card_Master {
     public void setDuration_in_years(int duration_in_years) {
         this.duration_in_years = duration_in_years;
     }
-
-    public Employee_Card_Details getEmpCardDetails() {
-        return empCardDetails;
-    }
-
-    public void setEmpCardDetails(Employee_Card_Details empCardDetails) {
-        this.empCardDetails = empCardDetails;
-    }
+    
+    public Loan_Card_Master() {}
 
     public Loan_Card_Master(String loan_id, String loan_type, int duration_in_years) {
         this.loan_id = loan_id;
@@ -57,10 +47,5 @@ public class Loan_Card_Master {
         this.duration_in_years = duration_in_years;
     }
 
-    public Loan_Card_Master(String loan_id, String loan_type, int duration_in_years, Employee_Card_Details empCardDetails) {
-        this.loan_id = loan_id;
-        this.loan_type = loan_type;
-        this.duration_in_years = duration_in_years;
-        this.empCardDetails = empCardDetails;
-    }
+
 }
