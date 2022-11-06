@@ -16,11 +16,5 @@ public class Items_Master_service_impl implements Items_Master_service {
 		dao.save(item);
 		return "inserted a row in item_master table";
 	}*/
-	@Autowired
-	Item_Master_dao dao;
-	
-	public String addItem(Item_Master item) {
-		dao.save(item);
-		return "inserted a row in item_master table";
-	}
+
 }
