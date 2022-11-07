@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ public class AdminController {
 	@Autowired
 	private Admin_service adminService;
 	
+	@CrossOrigin
 	@PostMapping(path = "/challenge", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> verifyLogin(@RequestBody Admin requestBody){
 		Optional<Admin> admin =  adminService.loginUsingUsernamePassword(requestBody);

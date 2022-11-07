@@ -22,7 +22,6 @@ public class Admin_service_impl implements Admin_service{
 		if(isInvalid(username) || isInvalid(password))
 			return Optional.empty();
 		Optional<Admin> foundValueForUsername = adminRepository.findById(username);
-		System.out.println(foundValueForUsername.get());
 		if(foundValueForUsername.isEmpty())
 			return foundValueForUsername;
 		else {
