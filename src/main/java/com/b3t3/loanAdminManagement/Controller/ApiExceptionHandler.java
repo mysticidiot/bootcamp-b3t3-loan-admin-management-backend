@@ -23,12 +23,13 @@ import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 public class ApiExceptionHandler {
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@ResponseBody
-	public ApiError handleValidationException(MethodArgumentNotValidException ex) {
+	public ResponseEntity<Object> handleValidationException(MethodArgumentNotValidException ex) {
 		BindingResult br = ex.getBindingResult();
 		FieldError fieldError = br.getFieldError();
-		return new ApiError("Invalid Data", fieldError.getDefaultMessage());
+		Map<String,String> response = new HashMap<>();
+		response.put("Exception", fieldError.getDefaultMessage());
+		return new ResponseEntity<Object>(response,HttpStatus.CONFLICT);
 	}
 	
 	@ExceptionHandler(SQLException.class)
@@ -36,7 +37,7 @@ public class ApiExceptionHandler {
 	public ResponseEntity<Object> handleSQLException(SQLException ex){
 		Map<String,String> response = new HashMap<>();
 		response.put("Exception", ex.getMessage());
-		return new ResponseEntity<Object>(response,HttpStatus.OK);
+		return new ResponseEntity<Object>(response,HttpStatus.CONFLICT);
 	}
 	
 	@ExceptionHandler(InvalidDataAccessApiUsageException.class)
@@ -44,7 +45,7 @@ public class ApiExceptionHandler {
 	public ResponseEntity<Object> handleInvalidDataAccessApiUsageException(InvalidDataAccessApiUsageException ex){
 		Map<String,String> response = new HashMap<>();
 		response.put("Exception", ex.getMessage());
-		return new ResponseEntity<Object>(response,HttpStatus.OK);
+		return new ResponseEntity<Object>(response,HttpStatus.CONFLICT);
 	}
 	
 	@ExceptionHandler(IdAlreadyExistsException.class)
@@ -52,7 +53,7 @@ public class ApiExceptionHandler {
 	public ResponseEntity<Object> handleIdAlreadyExistsException(IdAlreadyExistsException ex){
 		Map<String,String> response = new HashMap<>();
 		response.put("Exception", ex.getMessage());
-		return new ResponseEntity<Object>(response,HttpStatus.OK);
+		return new ResponseEntity<Object>(response,HttpStatus.CONFLICT);
 	}
 	
 	@ExceptionHandler(IdDoesNotExistException.class)
@@ -60,7 +61,7 @@ public class ApiExceptionHandler {
 	public ResponseEntity<Object> handleIdDoesNotExistsException(IdDoesNotExistException ex){
 		Map<String,String> response = new HashMap<>();
 		response.put("Exception", ex.getMessage());
-		return new ResponseEntity<Object>(response,HttpStatus.OK);
+		return new ResponseEntity<Object>(response,HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(Exception.class)
@@ -68,7 +69,7 @@ public class ApiExceptionHandler {
 	public ResponseEntity<Object> handleException(Exception ex){
 		Map<String,String> response = new HashMap<>();
 		response.put("Exception", ex.getMessage());
-		return new ResponseEntity<Object>(response,HttpStatus.OK);
+		return new ResponseEntity<Object>(response,HttpStatus.CONFLICT);
 	}
 	
 	

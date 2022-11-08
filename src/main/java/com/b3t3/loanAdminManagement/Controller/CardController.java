@@ -2,13 +2,19 @@ package com.b3t3.loanAdminManagement.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.b3t3.loanAdminManagement.Exception.IdAlreadyExistsException;
@@ -19,6 +25,7 @@ import com.b3t3.loanAdminManagement.service.Items_Master_service_impl;
 import com.b3t3.loanAdminManagement.service.Loan_Card_Master_service_impl;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/LAMA/card")
 public class CardController {
 	/*--------Test Purposes only-------------
@@ -34,22 +41,26 @@ public class CardController {
 	Loan_Card_Master_service_impl card_service;
 	
 	@PostMapping("/add")
-	public String addCard(@RequestBody Loan_Card_Master card) throws IdAlreadyExistsException {
+	@ResponseStatus(HttpStatus.OK)
+	public String addCard(@RequestBody @Valid Loan_Card_Master card) throws IdAlreadyExistsException,MethodArgumentNotValidException {
 		return card_service.addCard(card);
 	}
 	
 	@GetMapping("/display")
+	@ResponseStatus(HttpStatus.OK)
 	public List<Loan_Card_Master> showCards(){
 		return (List<Loan_Card_Master>)card_service.displayAllCards();	
 	}
 	
 	@GetMapping("/delete/{id}")
+	@ResponseStatus(HttpStatus.OK)
 	public String deleteCard(@PathVariable String id) throws IdDoesNotExistException{
 		return card_service.deleteCard(id);
 	}
 	
 	@PostMapping("/edit")
-	public String updateCard(@RequestBody Loan_Card_Master update_card) throws IdDoesNotExistException {
+	@ResponseStatus(HttpStatus.OK)
+	public String updateCard(@RequestBody @Valid Loan_Card_Master update_card) throws IdDoesNotExistException {
 		return card_service.updateCard(update_card);
 	}
 	

@@ -2,6 +2,8 @@ package com.b3t3.loanAdminManagement.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +35,7 @@ public class ItemController {
 	Items_Master_service item_service;
 	
 	@PostMapping("/add")
-	public String addItem(@RequestBody Item_Master item) throws IdAlreadyExistsException{
+	public String addItem(@RequestBody @Valid Item_Master item) throws IdAlreadyExistsException{
 		return item_service.addItem(item);
 	}
 	
@@ -48,7 +50,7 @@ public class ItemController {
 	}
 	
 	@PostMapping("/edit")
-	public String updateItem(@RequestBody Item_Master update_item) throws IdDoesNotExistException{
+	public String updateItem(@RequestBody @Valid Item_Master update_item) throws IdDoesNotExistException{
 		return item_service.updateItem(update_item);
 	}
 	

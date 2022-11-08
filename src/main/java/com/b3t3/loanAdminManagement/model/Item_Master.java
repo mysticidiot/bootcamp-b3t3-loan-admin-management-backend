@@ -4,27 +4,34 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "item_master")
 public class Item_Master {
 	
 	@Id
+	@NotBlank(message = "Id cant be blank")
 	String item_id;
 	
 	@Column
+	@NotBlank(message = "desc cant be blank")
 	String item_description;
 	
 	@Column
+	@NotBlank(message = "status cant be blank")
 	Character item_status;
 	
 	@Column
+	@NotBlank(message = "make cant be blank")
 	String item_make;
 	
 	@Column
+	@NotBlank(message = "category cant be blank")
 	String item_category;
 	
 	@Column
+	@NotBlank(message = "valuation cant be blank")
 	Long item_valuation;
 
 

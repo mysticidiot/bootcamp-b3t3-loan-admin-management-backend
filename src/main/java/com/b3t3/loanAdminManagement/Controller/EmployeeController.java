@@ -2,6 +2,8 @@ package com.b3t3.loanAdminManagement.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +35,7 @@ public class EmployeeController {
 	Employee_Master_service employee_service;
 	
 	@PostMapping("/add")
-	public String addEmployee(@RequestBody Employee_Master employee) throws IdAlreadyExistsException {
+	public String addEmployee(@RequestBody @Valid Employee_Master employee) throws IdAlreadyExistsException {
 		return employee_service.addEmployee(employee);
 	}
 	
@@ -48,7 +50,7 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/edit")
-	public String updateEmployee(@RequestBody Employee_Master update_employee) throws IdDoesNotExistException {
+	public String updateEmployee(@RequestBody @Valid Employee_Master update_employee) throws IdDoesNotExistException {
 		return employee_service.updateEmployee(update_employee);
 	}
 	
