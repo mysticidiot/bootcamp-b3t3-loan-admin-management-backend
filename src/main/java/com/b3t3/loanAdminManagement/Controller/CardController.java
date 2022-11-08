@@ -39,6 +39,7 @@ public class CardController {
 	public String addCard(@RequestBody @Valid Loan_Card_Master card) throws IdAlreadyExistsException,MethodArgumentNotValidException {
 		return card_service.addCard(card);
 	}
+	
 	@CrossOrigin(origins="http://localhost:3000")
 	@GetMapping("/display")
 	@ResponseStatus(HttpStatus.OK)
