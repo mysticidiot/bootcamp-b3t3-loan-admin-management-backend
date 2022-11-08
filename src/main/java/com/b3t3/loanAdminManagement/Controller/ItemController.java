@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.b3t3.loanAdminManagement.Exception.IdAlreadyExistsException;
+import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 import com.b3t3.loanAdminManagement.model.Item_Master;
+import com.b3t3.loanAdminManagement.service.Items_Master_service;
 import com.b3t3.loanAdminManagement.service.Items_Master_service_impl;
 
 @RestController
@@ -27,10 +30,10 @@ public class ItemController {
 	}*/
 	
 	@Autowired
-	Items_Master_service_impl item_service;
+	Items_Master_service item_service;
 	
 	@PostMapping("/add")
-	public String addItem(@RequestBody Item_Master item) {
+	public String addItem(@RequestBody Item_Master item) throws IdAlreadyExistsException{
 		return item_service.addItem(item);
 	}
 	
@@ -40,12 +43,12 @@ public class ItemController {
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String deleteItem(@PathVariable String id){
+	public String deleteItem(@PathVariable String id) throws IdDoesNotExistException{
 		return item_service.deleteItem(id);
 	}
 	
 	@PostMapping("/edit")
-	public String updateItem(@RequestBody Item_Master update_item) {
+	public String updateItem(@RequestBody Item_Master update_item) throws IdDoesNotExistException{
 		return item_service.updateItem(update_item);
 	}
 	

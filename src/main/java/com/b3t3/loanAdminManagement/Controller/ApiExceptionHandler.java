@@ -63,5 +63,13 @@ public class ApiExceptionHandler {
 		return new ResponseEntity<Object>(response,HttpStatus.OK);
 	}
 	
+	@ExceptionHandler(Exception.class)
+	@ResponseBody
+	public ResponseEntity<Object> handleException(Exception ex){
+		Map<String,String> response = new HashMap<>();
+		response.put("Exception", ex.getMessage());
+		return new ResponseEntity<Object>(response,HttpStatus.OK);
+	}
+	
 	
 }

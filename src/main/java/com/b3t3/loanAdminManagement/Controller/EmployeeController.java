@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.b3t3.loanAdminManagement.Exception.IdAlreadyExistsException;
+import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 import com.b3t3.loanAdminManagement.model.Employee_Master;
+import com.b3t3.loanAdminManagement.service.Employee_Master_service;
 import com.b3t3.loanAdminManagement.service.Employee_Master_service_impl;
 
 @RestController
@@ -27,10 +30,10 @@ public class EmployeeController {
 	}*/
 	
 	@Autowired
-	Employee_Master_service_impl employee_service;
+	Employee_Master_service employee_service;
 	
 	@PostMapping("/add")
-	public String addEmployee(@RequestBody Employee_Master employee) {
+	public String addEmployee(@RequestBody Employee_Master employee) throws IdAlreadyExistsException {
 		return employee_service.addEmployee(employee);
 	}
 	
@@ -40,12 +43,12 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String deleteEmployee(@PathVariable String id){
+	public String deleteEmployee(@PathVariable String id) throws IdDoesNotExistException{
 		return employee_service.deleteEmployee(id);
 	}
 	
 	@PostMapping("/edit")
-	public String updateEmployee(@RequestBody Employee_Master update_employee) {
+	public String updateEmployee(@RequestBody Employee_Master update_employee) throws IdDoesNotExistException {
 		return employee_service.updateEmployee(update_employee);
 	}
 	
