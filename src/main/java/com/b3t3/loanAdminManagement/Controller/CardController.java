@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.b3t3.loanAdminManagement.Exception.IdAlreadyExistsException;
+import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 import com.b3t3.loanAdminManagement.model.Item_Master;
 import com.b3t3.loanAdminManagement.model.Loan_Card_Master;
 import com.b3t3.loanAdminManagement.service.Items_Master_service_impl;
@@ -32,7 +34,7 @@ public class CardController {
 	Loan_Card_Master_service_impl card_service;
 	
 	@PostMapping("/add")
-	public String addCard(@RequestBody Loan_Card_Master card) {
+	public String addCard(@RequestBody Loan_Card_Master card) throws IdAlreadyExistsException {
 		return card_service.addCard(card);
 	}
 	
@@ -42,12 +44,12 @@ public class CardController {
 	}
 	
 	@GetMapping("/delete/{id}")
-	public String deleteCard(@PathVariable String id){
+	public String deleteCard(@PathVariable String id) throws IdDoesNotExistException{
 		return card_service.deleteCard(id);
 	}
 	
 	@PostMapping("/edit")
-	public String updateCard(@RequestBody Loan_Card_Master update_card) {
+	public String updateCard(@RequestBody Loan_Card_Master update_card) throws IdDoesNotExistException {
 		return card_service.updateCard(update_card);
 	}
 	

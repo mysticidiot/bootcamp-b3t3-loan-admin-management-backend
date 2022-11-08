@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,7 +20,7 @@ import com.b3t3.loanAdminManagement.model.Admin;
 import com.b3t3.loanAdminManagement.service.Admin_service;
 
 @RestController
-@RequestMapping("/lama/login")
+@RequestMapping("/LAMA/login")
 public class AdminController {
 	
 	@Autowired
@@ -26,7 +28,7 @@ public class AdminController {
 	
 	@CrossOrigin
 	@PostMapping(path = "/challenge", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> verifyLogin(@RequestBody Admin requestBody){
+	public ResponseEntity<Object> verifyLogin(@RequestBody @Valid Admin requestBody){
 		Optional<Admin> admin =  adminService.loginUsingUsernamePassword(requestBody);
 		Map<String,String> response = new HashMap<>();
 		if(admin.isEmpty()) {
