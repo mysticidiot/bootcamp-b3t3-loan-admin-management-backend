@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "admin")
@@ -11,9 +12,11 @@ public class Admin {
 
 	@Id
 	@Column
+	@NotBlank(message = "Username cannot be blank")
 	String username;
 	
 	@Column
+	@NotBlank(message = "Password cannot be blank")
 	String password;
 
 	public String getUsername() {

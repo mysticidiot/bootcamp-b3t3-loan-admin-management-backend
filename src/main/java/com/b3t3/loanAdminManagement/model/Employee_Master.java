@@ -5,30 +5,38 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="employee_master")
 public class Employee_Master {
 
 	@Id
+	@NotBlank(message = "Id cant be blank")
 	String employee_id;
 	
 	@Column
+	@NotBlank(message = "Name cant be blank")
 	String employee_name;
 	
 	@Column
+	@NotBlank(message = "designation cant be blank")
 	String designation;
 	
 	@Column
+	@NotBlank(message = "department cant be blank")
 	String department;
 	
 	@Column
+	@NotBlank(message = "gender cant be blank")
 	Character gender;
 	
 	@Column
+	@NotBlank(message = "dob cant be blank")
 	Date date_of_birth;
 	
 	@Column
+	@NotBlank(message = "doj cant be blank")
 	Date date_of_joining;
 	
 	public Employee_Master() {}
