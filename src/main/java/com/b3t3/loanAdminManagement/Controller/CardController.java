@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,36 +29,32 @@ import com.b3t3.loanAdminManagement.service.Loan_Card_Master_service_impl;
 @CrossOrigin
 @RequestMapping("/LAMA/card")
 public class CardController {
-	/*--------Test Purposes only-------------
-	@Autowired
-	Items_Master_service_impl service;
-	
-	@PostMapping("/addItem")
-	public String insertItem1(@RequestBody Item_Master item) {
-		return service.addItem(item);
-	}*/
 	
 	@Autowired
 	Loan_Card_Master_service_impl card_service;
 	
+	@CrossOrigin(origins="http://localhost:3000")
 	@PostMapping("/add")
 	@ResponseStatus(HttpStatus.OK)
 	public String addCard(@RequestBody @Valid Loan_Card_Master card) throws IdAlreadyExistsException,MethodArgumentNotValidException {
 		return card_service.addCard(card);
 	}
 	
+	@CrossOrigin(origins="http://localhost:3000")
 	@GetMapping("/display")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Loan_Card_Master> showCards(){
 		return (List<Loan_Card_Master>)card_service.displayAllCards();	
 	}
 	
+	@CrossOrigin(origins="http://localhost:3000")
 	@GetMapping("/delete/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public String deleteCard(@PathVariable String id) throws IdDoesNotExistException{
 		return card_service.deleteCard(id);
 	}
 	
+	@CrossOrigin(origins="http://localhost:3000")
 	@PostMapping("/edit")
 	@ResponseStatus(HttpStatus.OK)
 	public String updateCard(@RequestBody @Valid Loan_Card_Master update_card) throws IdDoesNotExistException {
