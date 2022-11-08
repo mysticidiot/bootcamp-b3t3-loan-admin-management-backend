@@ -22,15 +22,7 @@ import com.b3t3.loanAdminManagement.service.Items_Master_service_impl;
 @RestController
 @RequestMapping("/LAMA/item")
 public class ItemController {
-	/*--------Test Purposes only-------------
-	@Autowired
-	Items_Master_service_impl service;
-	
-	@PostMapping("/addItem")
-	public String insertItem1(@RequestBody Item_Master item) {
-		return service.addItem(item);
-	}*/
-	
+
 	@Autowired
 	Items_Master_service item_service;
 	

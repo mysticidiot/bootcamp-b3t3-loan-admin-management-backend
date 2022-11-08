@@ -29,17 +29,10 @@ import com.b3t3.loanAdminManagement.service.Loan_Card_Master_service_impl;
 @CrossOrigin
 @RequestMapping("/LAMA/card")
 public class CardController {
-	/*--------Test Purposes only-------------
-	@Autowired
-	Items_Master_service_impl service;
-	
-	@PostMapping("/addItem")
-	public String insertItem1(@RequestBody Item_Master item) {
-		return service.addItem(item);
-	}*/
 	
 	@Autowired
 	Loan_Card_Master_service_impl card_service;
+	
 	@CrossOrigin(origins="http://localhost:3000")
 	@PostMapping("/add")
 	@ResponseStatus(HttpStatus.OK)
@@ -55,7 +48,6 @@ public class CardController {
 	
 	@CrossOrigin(origins="http://localhost:3000")
 	@GetMapping("/delete/{id}")
-
 	@ResponseStatus(HttpStatus.OK)
 	public String deleteCard(@PathVariable String id) throws IdDoesNotExistException{
 		return card_service.deleteCard(id);
