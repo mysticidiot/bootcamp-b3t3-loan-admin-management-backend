@@ -24,7 +24,7 @@ public class Item_Master {
 	String item_description;
 	
 	@Column
-	Character item_status;
+	Character issue_status;
 	
 	@Column
 	@NotBlank(message = "make cant be blank")
@@ -54,12 +54,12 @@ public class Item_Master {
 		this.item_description = item_description;
 	}
 
-	public Character getItem_status() {
-		return item_status;
+	public Character getIssue_status() {
+		return issue_status;
 	}
 
-	public void setItem_status(Character item_status) {
-		this.item_status = item_status;
+	public void setIssue_status(Character item_status) {
+		this.issue_status = item_status;
 	}
 
 	public String getItem_make() {
@@ -92,7 +92,7 @@ public class Item_Master {
 		super();
 		this.item_id = item_id;
 		this.item_description = item_description;
-		this.item_status = item_status;
+		this.issue_status = item_status;
 		this.item_make = item_make;
 		this.item_category = item_category;
 		this.item_valuation = item_valuation;
