@@ -25,6 +25,8 @@ import com.b3t3.loanAdminManagement.model.Loan_Card_Master;
 import com.b3t3.loanAdminManagement.service.Items_Master_service_impl;
 import com.b3t3.loanAdminManagement.service.Loan_Card_Master_service_impl;
 
+//Spring mvc controller layer for Loan Card
+
 @RestController
 @CrossOrigin
 @RequestMapping("/LAMA/card")

@@ -10,7 +10,12 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name="employee_master")
 public class Employee_Master {
-
+	
+	//define fields
+	//define constructors
+	//define getters/setters
+	//define toString
+	
 	@Id
 	@NotBlank(message = "Id cant be blank")
 	String employee_id;

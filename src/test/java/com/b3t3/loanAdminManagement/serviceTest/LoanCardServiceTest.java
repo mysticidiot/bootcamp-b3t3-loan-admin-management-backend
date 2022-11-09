@@ -30,6 +30,8 @@ import com.b3t3.loanAdminManagement.service.Loan_Card_Master_service_impl;
 @RunWith(MockitoJUnitRunner.class)
 public class LoanCardServiceTest {
 	
+	//Class to test the loan card service
+	
 	@Mock
 	Loan_Card_Master_dao repository;
 	

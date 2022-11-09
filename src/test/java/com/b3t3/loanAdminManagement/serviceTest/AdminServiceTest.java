@@ -23,6 +23,8 @@ import com.b3t3.loanAdminManagement.service.Admin_service_impl;
 @RunWith(MockitoJUnitRunner.class)
 public class AdminServiceTest {
 	
+	//Class to test the admin service
+	
 	@Mock
 	Admin_dao adminRepository;
 	

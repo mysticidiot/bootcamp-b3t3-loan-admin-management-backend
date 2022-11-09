@@ -11,6 +11,8 @@ import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 import com.b3t3.loanAdminManagement.dao.Employee_Master_dao;
 import com.b3t3.loanAdminManagement.model.Employee_Master;
 
+//Service layer for employee entity
+
 @Service
 public class Employee_Master_service_impl implements Employee_Master_service {
 	

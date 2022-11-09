@@ -9,7 +9,12 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "admin")
 public class Admin {
-
+	
+	//define fields
+	//define constructors
+	//define getters/setters
+	//define toString
+	
 	@Id
 	@Column
 	@NotBlank(message = "Username cannot be blank")

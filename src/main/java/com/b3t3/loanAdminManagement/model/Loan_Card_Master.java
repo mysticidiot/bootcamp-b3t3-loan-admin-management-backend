@@ -6,7 +6,12 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name="loan_card_master")
 public class Loan_Card_Master {
-
+	
+	//define fields
+	//define constructors
+	//define getters/setters
+	//define toString
+		
     @Id
     @NotBlank(message = "Id cant be blank")
     String loan_id;

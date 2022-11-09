@@ -10,6 +10,11 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "item_master")
 public class Item_Master {
 	
+	//define fields
+	//define constructors
+	//define getters/setters
+	//define toString
+	
 	@Id
 	@NotBlank(message = "Id cant be blank")
 	String item_id;

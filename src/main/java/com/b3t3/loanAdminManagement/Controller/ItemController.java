@@ -22,6 +22,8 @@ import com.b3t3.loanAdminManagement.model.Item_Master;
 import com.b3t3.loanAdminManagement.service.Items_Master_service;
 import com.b3t3.loanAdminManagement.service.Items_Master_service_impl;
 
+//Spring mvc controller layer for Items
+
 @RestController
 @RequestMapping("/LAMA/item")
 public class ItemController {

@@ -9,6 +9,8 @@ import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 import com.b3t3.loanAdminManagement.dao.Loan_Card_Master_dao;
 import com.b3t3.loanAdminManagement.model.Loan_Card_Master;
 
+//Service layer for loan card entity
+
 @Service
 public class Loan_Card_Master_service_impl implements Loan_Card_Master_service{
 	@Autowired

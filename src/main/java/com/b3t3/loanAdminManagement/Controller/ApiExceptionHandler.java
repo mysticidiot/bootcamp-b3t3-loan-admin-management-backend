@@ -21,7 +21,9 @@ import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 
 @ControllerAdvice
 public class ApiExceptionHandler {
-
+	
+	//Exception handling methods
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseBody
 	public ResponseEntity<Object> handleValidationException(MethodArgumentNotValidException ex) {
