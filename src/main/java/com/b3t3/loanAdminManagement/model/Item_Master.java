@@ -49,11 +49,11 @@ public class Item_Master {
 		this.item_description = item_description;
 	}
 
-	public Character getItem_status() {
+	public Character getIssue_status() {
 		return issue_status;
 	}
 
-	public void setItem_status(Character item_status) {
+	public void setIssue_status(Character item_status) {
 		this.issue_status = item_status;
 	}
 
