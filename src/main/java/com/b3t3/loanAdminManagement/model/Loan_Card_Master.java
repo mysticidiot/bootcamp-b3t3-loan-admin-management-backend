@@ -16,7 +16,6 @@ public class Loan_Card_Master {
     String loan_type;
 
     @Column
-    @NotEmpty(message = "duration cant be blank")
     int duration_in_years;
 
     public String getLoan_id() {
