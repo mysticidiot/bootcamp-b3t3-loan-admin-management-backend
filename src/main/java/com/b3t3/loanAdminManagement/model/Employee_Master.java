@@ -28,7 +28,6 @@ public class Employee_Master {
 	String department;
 	
 	@Column
-	@NotBlank(message = "gender cant be blank")
 	Character gender;
 	
 	@Column

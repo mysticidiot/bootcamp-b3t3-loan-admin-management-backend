@@ -19,7 +19,6 @@ public class Item_Master {
 	String item_description;
 	
 	@Column
-	@NotBlank(message = "status cant be blank")
 	Character item_status;
 	
 	@Column
