@@ -28,15 +28,12 @@ public class Employee_Master {
 	String department;
 	
 	@Column
-	@NotBlank(message = "gender cant be blank")
 	Character gender;
 	
 	@Column
-	@NotBlank(message = "dob cant be blank")
 	Date date_of_birth;
 	
 	@Column
-	@NotBlank(message = "doj cant be blank")
 	Date date_of_joining;
 	
 	public Employee_Master() {}
