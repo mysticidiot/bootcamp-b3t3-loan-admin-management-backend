@@ -19,7 +19,7 @@ public class Items_Master_service_impl implements Items_Master_service {
 		if(dao.existsById(item.getItem_id())) {
 			throw new IdAlreadyExistsException();
 		}else {
-			dao.save(item).toString();
+			dao.save(item);
 			return "Item Added Successfully!";
 		}
 	}

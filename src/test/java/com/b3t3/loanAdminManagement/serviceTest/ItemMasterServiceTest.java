@@ -2,9 +2,14 @@ package com.b3t3.loanAdminManagement.serviceTest;
 
 import com.b3t3.loanAdminManagement.Exception.IdAlreadyExistsException;
 import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
+import com.b3t3.loanAdminManagement.dao.Item_Master_dao;
+import com.b3t3.loanAdminManagement.model.Item_Master;
+import com.b3t3.loanAdminManagement.service.Items_Master_service_impl;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -39,7 +44,7 @@ public class ItemMasterServiceTest {
     @Test
     public void addNewItem() throws IdAlreadyExistsException {
         Item_Master newItem = new Item_Master("CR01", "Car", 'Y', "Steel",
-                "Vehicle", 1000000);
+                "Vehicle", (long) 1000000);
         when(repository.findById(anyString())).thenReturn(Optional.of(newItem));
         String response = itemService.addItem(newItem);
         assert(response.equals("Item Added Successfully!"));
@@ -51,11 +56,11 @@ public class ItemMasterServiceTest {
     @Test
     public void updateItemCheck(){
         Item_Master newItem = new Item_Master("CR01", "Car", 'Y', "Steel",
-                "Vehicle", 1000000);
+                "Vehicle", (long) 1000000);
         String response;
         when(repository.findById(anyString())).thenReturn(Optional.of(newItem));
         try {
-            newItem.setItem_Description("Jet");
+            newItem.setItem_description("Jet");
             response = itemService.updateItem(newItem);
             assert(response.toLowerCase().contains("updated"));
         }catch (Exception e) {
@@ -66,7 +71,7 @@ public class ItemMasterServiceTest {
     @Test
     public void deleteItemCheck(){
         Item_Master newItem = new Item_Master("CR01", "Car", 'Y', "Steel",
-                "Vehicle", 1000000);
+                "Vehicle", (long) 1000000);
         String response;
         when(repository.findById(anyString())).thenReturn(Optional.of(newItem));
         try {
@@ -80,7 +85,7 @@ public class ItemMasterServiceTest {
     @Test
     public void deleteItemWhenDoesNotExist(){
         Item_Master newItem = new Item_Master("CR01", "Car", 'Y', "Steel",
-                "Vehicle", 1000000);
+                "Vehicle", 1000000L);
         when(repository.findById(anyString())).thenReturn(Optional.of(newItem));
         assertThrows(IdDoesNotExistException.class, () -> {
             itemService.deleteItem(newItem.getItem_id());
@@ -90,7 +95,7 @@ public class ItemMasterServiceTest {
     @Test
     public void updateItemWhenDoesNotExist(){
         Item_Master newItem = new Item_Master("CR01", "Car", 'Y', "Steel",
-                "Vehicle", 1000000);
+                "Vehicle", 1000000L);
         when(repository.findById(anyString())).thenReturn(Optional.of(newItem));
         assertThrows(IdDoesNotExistException.class, () -> {
             itemService.updateItem(newItem);

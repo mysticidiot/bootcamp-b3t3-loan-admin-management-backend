@@ -22,7 +22,7 @@ public class Employee_Master_service_impl implements Employee_Master_service {
 		if(dao.existsById(employee.getEmployee_id())) {
 			throw new IdAlreadyExistsException();
 		}else {
-			dao.save(employee).toString();
+			dao.save(employee);
 			return "Employee Added Successfully!";
 		}
 	}
