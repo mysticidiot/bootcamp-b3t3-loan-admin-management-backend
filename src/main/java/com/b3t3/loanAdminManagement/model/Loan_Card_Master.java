@@ -1,22 +1,22 @@
 package com.b3t3.loanAdminManagement.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="loan_card_master")
 public class Loan_Card_Master {
 
     @Id
-    @NotEmpty(message = "Id cant be blank")
+    @NotBlank(message = "Id cant be blank")
     String loan_id;
 
     @Column
-    @NotEmpty(message = "type cant be blank")
+    @NotBlank(message = "type cant be blank")
     String loan_type;
 
     @Column
-    @NotEmpty(message = "duration cant be blank")
+    @NotBlank(message = "duration cant be blank")
     int duration_in_years;
 
     public String getLoan_id() {

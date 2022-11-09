@@ -31,7 +31,6 @@ public class Item_Master {
 	String item_category;
 	
 	@Column
-	@NotBlank(message = "valuation cant be blank")
 	Long item_valuation;
 
 

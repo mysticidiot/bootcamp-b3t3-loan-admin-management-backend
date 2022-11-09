@@ -18,7 +18,7 @@ public class Loan_Card_Master_service_impl implements Loan_Card_Master_service{
 		if(dao.existsById(card.getLoan_id())) {
 			throw new IdAlreadyExistsException();
 		}else {
-			dao.save(card).toString();
+			dao.save(card);
 			return "Card Added Successfully!";
 		}
 	}

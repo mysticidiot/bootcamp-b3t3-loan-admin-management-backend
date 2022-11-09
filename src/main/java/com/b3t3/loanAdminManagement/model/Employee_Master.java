@@ -32,11 +32,9 @@ public class Employee_Master {
 	Character gender;
 	
 	@Column
-	@NotBlank(message = "dob cant be blank")
 	Date date_of_birth;
 	
 	@Column
-	@NotBlank(message = "doj cant be blank")
 	Date date_of_joining;
 	
 	public Employee_Master() {}
