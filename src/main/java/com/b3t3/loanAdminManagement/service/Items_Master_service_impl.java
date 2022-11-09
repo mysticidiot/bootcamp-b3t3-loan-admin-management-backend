@@ -10,6 +10,8 @@ import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 import com.b3t3.loanAdminManagement.dao.Item_Master_dao;
 import com.b3t3.loanAdminManagement.model.Item_Master;
 
+//Service layer for Items entity
+
 @Service
 public class Items_Master_service_impl implements Items_Master_service {
 	@Autowired

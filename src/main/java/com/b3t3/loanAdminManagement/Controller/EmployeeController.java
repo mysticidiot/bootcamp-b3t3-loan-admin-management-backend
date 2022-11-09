@@ -21,6 +21,9 @@ import com.b3t3.loanAdminManagement.Exception.IdDoesNotExistException;
 import com.b3t3.loanAdminManagement.model.Employee_Master;
 import com.b3t3.loanAdminManagement.service.Employee_Master_service;
 import com.b3t3.loanAdminManagement.service.Employee_Master_service_impl;
+
+//Spring mvc controller layer for Employee
+
 @CrossOrigin
 @RestController
 @RequestMapping("/LAMA/employee")

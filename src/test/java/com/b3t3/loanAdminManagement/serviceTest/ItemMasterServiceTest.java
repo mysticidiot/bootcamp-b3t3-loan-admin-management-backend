@@ -25,6 +25,8 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ItemMasterServiceTest {
 
+	//Class to test the item service
+	
     @Mock
     Item_Master_dao repository;
 

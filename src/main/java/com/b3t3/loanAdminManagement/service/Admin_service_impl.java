@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.b3t3.loanAdminManagement.dao.Admin_dao;
 import com.b3t3.loanAdminManagement.model.Admin;
 
+//Service layer for Admin entity
+
 @Service
 public class Admin_service_impl implements Admin_service{
 	

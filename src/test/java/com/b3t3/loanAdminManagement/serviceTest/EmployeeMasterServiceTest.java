@@ -24,7 +24,10 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmployeeMasterServiceTest {
-    @Mock
+    
+	//Class to test the employee service
+	
+	@Mock
     Employee_Master_dao repository;
 
     @InjectMocks

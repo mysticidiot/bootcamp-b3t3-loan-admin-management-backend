@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.b3t3.loanAdminManagement.model.Admin;
 import com.b3t3.loanAdminManagement.service.Admin_service;
 
+//Spring mvc controller layer for admin
+
 @RestController
 @RequestMapping("/LAMA/login")
 public class AdminController {
